@@ -71,8 +71,8 @@ ENABLE_CORRECTION="false"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    zsh-autosuggestions
-	colored-man-pages
+#    zsh-autosuggestions
+#	colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -114,6 +114,7 @@ setbg () {
 	#pywal-discord
 	cd "$HOME/.config/suckless/dwm"
 	sudo make clean install &>/dev/null
+	killall dwm
 	cd "$HOME/.config/suckless/st"
 	sudo make clean install &>/dev/null
 	cd $dir
@@ -134,6 +135,6 @@ fcd () {
 #alias sus=locksuspend
 wal -Rq
 #source /home/sh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export PATH=~/.dotfiles/scripts/:$PATH
+#export PATH=~/.dotfiles/scripts/:$PATH
 neofetch
 wal -Rq

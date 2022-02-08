@@ -112,9 +112,9 @@ setbg () {
 	wal -i $WALLPAPER -q
 	pywalfox update
 	#pywal-discord
-	cd "$HOME/.config/dwm"
+	cd "$HOME/.config/suckless/dwm"
 	sudo make clean install &>/dev/null
-	cd "$HOME/.config/st"
+	cd "$HOME/.config/suckless/st"
 	sudo make clean install &>/dev/null
 	cd $dir
 }

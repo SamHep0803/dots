@@ -109,13 +109,13 @@ export PATH=$PATH:$HOME/.local/bin
 setbg () {
 	dir=$(pwd)
 	WALLPAPER=$( find "$HOME/.config/wallpapers/pywallpapers" -type f -print0 | shuf -z -n 1 )
-	wal -i $WALLPAPER -q
+	wal -i $WALLPAPER
 	pywalfox update
 	#pywal-discord
-	cd "$HOME/.config/suckless/dwm"
+	cd "$HOME/.dots/suckless/dwm"
 	sudo make clean install &>/dev/null
 	killall dwm
-	cd "$HOME/.config/suckless/st"
+	cd "$HOME/.dots/suckless/st"
 	sudo make clean install &>/dev/null
 	cd $dir
 }

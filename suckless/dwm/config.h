@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include "movestack.c"
 #include "/home/sh/.cache/wal/colors-wal-dwm.h"
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -10,8 +11,8 @@ static const unsigned int gappov    = 10;       /* vert outer gap between window
 static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 30;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "VictorMono Nerd Font Mono:style=Medium,Regular:size=15:antialias=true:autohint=true" };
+static const int user_bh            = 50;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const char *fonts[]          = { "VictorMono Nerd Font Mono:style=Medium,Regular:size=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "VictorMono Nerd Font Mono:size=15:antialias=true:autohint=true";
 
 /* tagging */
@@ -24,7 +25,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       2,            0,           -1 },
+	{ "st-256color",  NULL,   NULL,       1,            0,           -1 },
 };
 
 /* layout(s) */
@@ -55,7 +57,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", norm_fg, "-sb", sel_bg, "-sf", sel_fg, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *webcmd[]   = { "microsoft-edge-stable", NULL };
+static const char *webcmd[]   = { "firefox", NULL };
 static const char *screenshotcmd[] = { "scrot", NULL };
 
 static Key keys[] = {
@@ -85,6 +87,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

@@ -4,7 +4,10 @@
 xrandr --output Virtual1 --mode 2560x1080 &
 
 # Compositor
-picom -f --experimental-backends &
+#picom -f --experimental-backends &
+
+# Xresources
+xrdb -merge .Xresources
 
 # VBox clipboard
 VBoxClient --clipboard &
@@ -15,7 +18,7 @@ wal -Rq
 # DWM loop
 while true; do
 	dwm >/dev/null 2>&1
-	VBoxClient --clipboard &
+#	VBoxClient --clipboard &
 done
 
 # DWM

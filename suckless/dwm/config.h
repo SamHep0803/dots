@@ -9,12 +9,16 @@ static const unsigned int gappiv    = 10;       /* vert inner gap between window
 static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
+static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 50;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "VictorMono Nerd Font Mono:style=Medium,Regular:size=12:antialias=true:autohint=true" };
+static const char *fonts[]          = { "VictorMono Nerd Font Mono:style=Medium,Regular:size=15:antialias=true:autohint=true" };
 static const char dmenufont[]       = "VictorMono Nerd Font Mono:style=Medium,Regular:size=15:antialias=true:autohint=true";
-//static const char dmenufont[]       = "VictorMono Nerd Font Mono:size=15:antialias=true:autohint=true";
 
 /* tagging */
 static const char *tags[] = { "/DEV", "<WWW>", ".DOC", " CHAT", " (G)"};
@@ -27,6 +31,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       2,            0,           -1 },
+	{ "firefox",  NULL,       NULL,       2,            0,           -1 },
 	{ "st-256color",  NULL,   NULL,       1,            0,           -1 },
 };
 

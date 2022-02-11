@@ -13,7 +13,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 50;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "VictorMono Nerd Font Mono:style=Medium,Regular:size=12:antialias=true:autohint=true" };
-static const char dmenufont[]       = "VictorMono Nerd Font Mono:size=15:antialias=true:autohint=true";
+static const char dmenufont[]       = "VictorMono Nerd Font Mono:style=Medium,Regular:size=15:antialias=true:autohint=true";
+//static const char dmenufont[]       = "VictorMono Nerd Font Mono:size=15:antialias=true:autohint=true";
 
 /* tagging */
 static const char *tags[] = { "/DEV", "<WWW>", ".DOC", " CHAT", " (G)"};

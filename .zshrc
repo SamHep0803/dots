@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # for jdtls
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/ninja:$(yarn global bin)
 
 setbg () {
 	dir=$(pwd)
@@ -128,7 +128,7 @@ alias fet="neofetch"
 alias c="clear"
 alias .z="v $HOME/.zshrc"
 
-fcd () {
+f () {
   cd "$( find $HOME -type d | fzf )"
 }
 

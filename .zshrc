@@ -108,7 +108,7 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/ninja:$(yarn global bin)
 
 setbg () {
 	dir=$(pwd)
-	WALLPAPER=$( find "$HOME/.config/wallpapers/pywallpapers" -type f -print0 | shuf -z -n 1 )
+	WALLPAPER=$( find "$HOME/.dots/wallpapers/pywallpapers" -type f -print0 | shuf -z -n 1 )
 	wal -i $WALLPAPER
 	pywalfox update
 	#pywal-discord

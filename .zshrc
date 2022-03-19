@@ -122,7 +122,8 @@ setbg () {
 
 # aliases
 alias w=setbg
-alias v="nvim"
+#alias v="nvim"
+alias v="lvim"
 alias n="ncmpcpp -q"
 alias fet="neofetch"
 alias c="clear"

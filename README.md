@@ -28,6 +28,7 @@ bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/
 ln -s ~/.dots/lvim ~/.config/
 ln -s ~/.dots/.zshrc ~/
 ln -s ~/.dots/.xinitrc ~/
+ln -s ~/.dots/.Xresources ~/
 ```
 
 - fonts

@@ -105,10 +105,15 @@ source $ZSH/oh-my-zsh.sh
 
 # for jdtls
 export PATH=$PATH:$HOME/.local/bin:$HOME/ninja:$(yarn global bin)
+export ALTERNATE_EDITOR=""
 
 setbg () {
+  if (( $#==1 )); then
+    WALLPAPER=$1
+  else
+    WALLPAPER=$( find "$HOME/.dots/wallpapers/pywallpapers" -type f -print0 | shuf -z -n 1 )
+  fi
 	dir=$(pwd)
-	WALLPAPER=$( find "$HOME/.dots/wallpapers/pywallpapers" -type f -print0 | shuf -z -n 1 )
 	wal -i $WALLPAPER
 	pywalfox update
 	#pywal-discord
@@ -128,6 +133,7 @@ alias n="ncmpcpp -q"
 alias fet="neofetch"
 alias c="clear"
 alias .z="v $HOME/.zshrc"
+alias e="emacsclient -c --socket-name=/run/user/1000/emacs/server --eval '(load-file \"~/.emacs.d/init.el\")'"
 
 f () {
   cd "$( find $HOME -type d | fzf )"
@@ -138,4 +144,3 @@ wal -Rq
 #source /home/sh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #export PATH=~/.dotfiles/scripts/:$PATH
 neofetch
-wal -Rq

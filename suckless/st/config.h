@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-#include "/home/sh/.cache/wal/colors-wal-st.h"
+#include "/home/shepworth/.cache/wal/colors-wal-st.h"
 /*
  * appearance
  *

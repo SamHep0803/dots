@@ -16,9 +16,11 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-- pywal
+- pip stuff
 ```
 pip3 install pywal
+pip3 install pywalfox
+pywalfox install
 ```
 
 - install

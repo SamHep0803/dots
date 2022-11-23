@@ -20,7 +20,7 @@ wal -Rq
 
 # DWM status loop
 while true; do
-  xsetroot -name "$(free -m | grep '^Mem' | awk '{printf "Mem: %.1fG/%.1fG", $3/1000, $2/1000}') | $(date +'%b %d (%a) %R')"
+	xsetroot -name "$(free -m | grep '^Mem' | awk '{printf "Mem: %.1fG/%.1fG", $3/1000, $2/1000}') | $(date +'%b %d (%a) %R')"
   sleep 1
 done &
 

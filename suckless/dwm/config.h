@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 #include "movestack.c"
-#include "/home/sh/.cache/wal/colors-wal-dwm.h"
+#include "/home/shepworth/.cache/wal/colors-wal-dwm.h"
+#include <X11/XF86keysym.h>
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -64,6 +65,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *webcmd[]   = { "firefox", NULL };
 static const char *screenshotcmd[] = { "scrot", NULL };
+static const char *cmdbrightnessup[]  = { "brightnessctl", "s", "+20%", NULL };
+static const char *cmdbrightnessdown[]  = { "brightnessctl", "s", "20%-", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -94,6 +97,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+	{ 0,                            XF86XK_MonBrightnessDown,     spawn,          {.v = cmdbrightnessdown } },
+	{ 0,                            XF86XK_MonBrightnessUp,       spawn,          {.v = cmdbrightnessup } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

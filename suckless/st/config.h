@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // static char *font = "Iosevka Nerd Font Mono:style=Medium,Regular:pixelsize=30:antialias=true:autohint=true";
-static char *font = "Iosevka Term:style=Regular:pixelsize=30:antialias=true:autohint=true";
+static char *font = "Iosevka Term:style=Light:pixelsize=30:antialias=true:autohint=true";
 // static char *font2 = "Victor Mono Medium:pixelsize=28:antialias=true:autohint=true";
 static char *font2 = "JoyPixels:pixelsize=28:antialias=true:autohint=true";
 static int borderpx = 2;
@@ -119,7 +119,7 @@ float alpha = 1;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 5;
 
 /*
  * Default columns and rows numbers

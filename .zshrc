@@ -104,8 +104,19 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # for jdtls
-export PATH=$PATH:$HOME/.local/bin:$HOME/ninja:$(yarn global bin)
+export PATH=$PATH:$HOME/.local/bin:$HOME/ninja:$(yarn global bin):$HOME/go/bin:$HOME/.emacs.d/bin:$HOME/.cargo/bin
 export ALTERNATE_EDITOR=""
+export MOZ_ENABLE_WAYLAND=1
+
+wal-sway () {
+    if (( $#==1 )); then
+        wal -n -i "$@"
+    else 
+        wal -Rq
+    fi
+    pkill swaybg
+    swaybg -i "$(< "${HOME}/.cache/wal/wal")" &
+}
 
 setbg () {
   if (( $#==1 )); then
@@ -114,15 +125,15 @@ setbg () {
     WALLPAPER=$( find "$HOME/.dots/wallpapers/pywallpapers" -type f -print0 | shuf -z -n 1 )
   fi
 	dir=$(pwd)
-	wal -i $WALLPAPER
+    wal-sway $WALLPAPER
 	pywalfox update
 	#pywal-discord
-	cd "$HOME/.dots/suckless/dwm"
-	sudo make clean install &>/dev/null
-	killall dwm
-	cd "$HOME/.dots/suckless/st"
-	sudo make clean install &>/dev/null
-	cd $dir
+	# cd "$HOME/.dots/suckless/dwm"
+	# sudo make clean install &>/dev/null
+	# killall dwm
+	# cd "$HOME/.dots/suckless/st"
+	# sudo make clean install &>/dev/null
+	# cd $dir
 }
 
 # aliases
@@ -134,6 +145,7 @@ alias fet="neofetch"
 alias c="clear"
 alias .z="v $HOME/.zshrc"
 alias e="emacsclient -c --socket-name=/run/user/1000/emacs/server --eval '(load-file \"~/.emacs.d/init.el\")'"
+alias hx="helix"
 
 f () {
   cd "$( find $HOME -type d | fzf )"
@@ -144,3 +156,6 @@ wal -Rq
 #source /home/sh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #export PATH=~/.dotfiles/scripts/:$PATH
 neofetch
+eval $(hub alias -s)
+eval "$(zoxide init zsh)"
+

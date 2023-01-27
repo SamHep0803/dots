@@ -22,7 +22,7 @@ static const char *fonts[]          = { "Iosevka Nerd Font:style=Medium,Regular:
 static const char dmenufont[]       = "Iosevka Nerd Font:style=Medium,Regular:size=15:antialias=true:autohint=true";
 
 /* tagging */
-static const char *tags[] = { "$TERM", "/DEV", "<WWW>", ".DOC", " CHAT", " (G)"};
+static const char *tags[] = { "$TERM", "/MUSIC", "<WWW>", "*MISC", " CHAT", " (G)"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -65,8 +65,10 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *webcmd[]   = { "firefox", NULL };
 static const char *screenshotcmd[] = { "scrot", NULL };
-static const char *cmdbrightnessup[]  = { "brightnessctl", "s", "+20%", NULL };
-static const char *cmdbrightnessdown[]  = { "brightnessctl", "s", "20%-", NULL };
+static const char *cmdbrightnessup[]  = { "brightnessctl", "s", "+10%", NULL };
+static const char *cmdbrightnessdown[]  = { "brightnessctl", "s", "10%-", NULL };
+static const char *cmdvolumeup[]  = { "pamixer", "-i", "10", NULL };
+static const char *cmdvolumedown[]  = { "pamixer", "-d", "10", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -99,6 +101,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ 0,                            XF86XK_MonBrightnessDown,     spawn,          {.v = cmdbrightnessdown } },
 	{ 0,                            XF86XK_MonBrightnessUp,       spawn,          {.v = cmdbrightnessup } },
+	{ 0,                            XF86XK_AudioLowerVolume,     spawn,          {.v = cmdvolumedown } },
+	{ 0,                            XF86XK_AudioRaiseVolume,       spawn,          {.v = cmdvolumeup } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

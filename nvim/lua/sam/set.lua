@@ -9,8 +9,9 @@ opt.scrolloff = 4
 opt.signcolumn = "yes"
 
 opt.syntax = "ON"
---opt.termguicolors = true
---vim.cmd([[colorscheme dracula]])
+opt.termguicolors = true
+vim.cmd([[colorscheme base16-tomorrow-night]])
+vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "bg" })
 
 opt.guifont = string.format("%s:h%s", vim.g.gui_font_face, vim.g.gui_font_size)
 
@@ -20,16 +21,18 @@ opt.incsearch = true
 opt.hlsearch = false
 
 opt.expandtab = true
-opt.shiftwidth = 4
-opt.softtabstop = 4
-opt.tabstop = 4
+opt.shiftwidth = 2
+opt.softtabstop = 2
+opt.tabstop = 2
+
+vim.wo.wrap = false
 
 opt.splitright = false
 opt.splitbelow = true
 
-vim.opt.undofile = true
+opt.undofile = true
 
-opt.clipboard = "unnamed"
+opt.clipboard = "unnamedplus"
 
 opt.timeoutlen = 200
 
